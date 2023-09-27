@@ -36,15 +36,19 @@ so to start with understanding regex we have to start small and go from there so
  -(.): Matches any character except a newline.
 
 
+^: Start of the string.
 
+([a-z0-9_\.-]+): This captures the username part before the "@" symbol. It allows lowercase letters, digits, underscores, dots, and hyphens, with at least one or more characters.
 
-^: Asserts the start of the string.
-[a-zA-Z0-9._-]+: Matches the local part.
-@: Matches the "@" symbol.
-[a-zA-Z0-9.-]+: Matches the domain name (excluding the top-level domain).
-\.: Matches a dot before the top-level domain.
-[a-zA-Z]{2,}: Matches the top-level domain with at least two alphabetical characters.
-$: Asserts the end of the string.
+@: Matches the "@" symbol literally.
+
+([\da-z\.-]+): This captures the domain name before the dot. It allows digits, lowercase letters, dots, and hyphens, with at least one or more characters.
+
+\.: Matches the dot (.) symbol literally.
+
+([a-z\.]{2,6}): This captures the top-level domain (like "com" or "org"). It allows lowercase letters and dots, with a length between 2 and 6 characters.
+
+$: End of the string.
 
 ### Anchors
 
@@ -84,11 +88,24 @@ so if you were to use the "or" operator it would look something like this hambur
 
 ### Flags
 In regex, flags are special instructions that modify how the pattern is matched. They can change things like case sensitivity, the way special characters are interpreted, and how the pattern spans multiple lines.
-### Character Escapes
-\d - Matches any digit (0-9).
-\w - Matches any word character (alphanumeric and underscore).
-\s - Matches any whitespace character.
 
+here are a few examples of flags 
+
+### Character Escapes
+
+ I will give an example of a few and explain what they do and when to use them 
+\d - Matches any digit (0-9). so if you you were wanting to match and extract digits from a string you would use \d+ and it would match the numbers in the string like hi123sam it would match the 123.
+
+another example and how to use and when to use 
+\w - Matches any word character (alphanumeric and underscore). for example  If you want to match and extract words from a string, you can use \w+. Example: \w+ would match "hi" in the string "hi_sam".
+
+\s - Matches any whitespace character. for example  If you want to match and extract whitespace characters from a string, you can use \s+ this would match the space between "hi sam"
+ 
 ## Author
+Hello! my name is samuel williams i am here to explain alittle bit about regex and how it works and how a few key componets function and what they do, I am attending U-PENN's bootcamp program to be a full stack developer and create big new things.  here below i will attach where you can reach me and see some of my code and notes 
+ 
+ E-mail samuel.tahjai.williams@gmail.com
+
+git hub - https://gist.github.com/samt11345
 
 A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
